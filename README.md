@@ -1,36 +1,94 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## Estrutura do Projeto (Next.js):
 
-## Getting Started
+```bash 
+- Campo e clube de futebol
 
-First, run the development server:
+- A ideia do desafio está em criar uma página no front-end que mostra as informações de um clube de futebol e que o usuário consiga customizar o clube com os jogadores que quiser. Não precisa ser um clube nacional, pode até ser seleções mesmo, por exemplo, seleção brasileira, argentina e etc.
+
+- Na tela principal o usuário consegue ver os times (não precisa colocar muitos de início) e assim que ele clica em um time, abre um campo de futebol mostrando os jogadores daquele time na posição de cada um no campo. Assim que o usuário clica na foto desse jogador, abre uma mini aba de informações logo acima da foto dele que mostra informações do jogador, com descrição dele, posição, quanto tempo está no time e quais os outros 3 recentes clubes que ele jogou.
+
+- O usuário tem que conseguir procurar jogadores e adicionar eles para um clube, mas ele não pode adicionar jogadores em uma posição do campo que não faz parte da do jogador, por exemplo, ele não pode adicionar um goleiro como atacante e vice-versa. Além disso, o usuário pode conseguir adicionar pessoas para o banco de reserva e customizar em que tempo ele vai entrar no jogo.
+
+- Quando você vai pesquisar um jogador, cada jogador tem um card que mostra as informações dele e o card pode funcionar da mesma forma que em jogos de futebol, que a cor do card muda de acordo com as estatísticas do jogador, por exemplo, e se ele for no geral 90+ fica amarelo (cor ouro), caso seja, abaixo de 60, vermelho e entre outros aí, pode ficar à vontade para customizar da forma que quiser e também, caso queira, adicionar essa cor de card e estatísticas na visualização das informações do usuário no campo de futebol. Exemplo dessa funcao em imagem: Clique para ver
+
+- Além disso tudo, pode ter uma tela de comparação de jogadores, que compara as estatísticas de um jogador com as de outro e mostra quem teoricamente "venceu nas estatísticas", esse desafio é livre, então, caso queira adicionar mais coisas, fique à vontade :
+
+- Caso voce precise de dados para os jogadores, pode pesquisar por uma API na internet, mas recomendamos que voce use essa como base: (https://www.api-football.com)
+```
+
+
+### Team Page - Football API Integration
+
+1. Descrição
+
+- Este projeto é uma página dinâmica que exibe informações sobre um time de futebol, incluindo seus jogadores, utilizando a API Football (https://www.api-football.com/documentation-v3). 
+- Os usuários podem buscar jogadores e adicioná-los ao time.
+
+2. Tecnologias Utilizadas
+
+- Next.js: Framework React para renderização no servidor e otimização da aplicação.
+
+- TypeScript: Tipagem estática para maior segurança e produtividade.
+
+- Tailwind CSS: Framework CSS para estilização rápida e responsiva.
+
+- API Football: Para obter informações sobre times e jogadores.
+
+- Node: Versão >= 18.0.
+
+3. Instalação e Execução
+
+- Clone o repositório:
+
+```bash
+git clone https://github.com/reinaldoper/football.git
+```
+
+- Acesse o diretório do projeto:
+
+```bash
+cd football
+```
+
+- Instale as dependências:
+
+```bash
+npm install
+```
+
+- Configure a chave da API Football no arquivo .env:
+
+```bash
+NEXT_PUBLIC_API_FOOTBALL_KEY=SUACHAVEAQUI
+```
+
+- Inicie o servidor de desenvolvimento:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Acesse http://localhost:3000/.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Learn More
+```bash
+├── src/
+│   ├── app/
+│   │   ├── (main)/
+│   │   │   ├── page.tsx       
+│   │   ├── team/
+│   │   │   ├── [id]/
+│   │   │   │   └── page.tsx   
+│   │   ├── compare/
+│   │   │   └── page.tsx       
+│   ├── components/
+│   │   ├── Field.tsx         
+│   │   ├── PlayerCard.tsx     
+│   │   ├── ComparisonTool.tsx 
+│   │   ├── SearchPlayer.tsx   
+│   ├── lib/
+│   │   └── api.ts 
+│   │   └── types.ts           
+```
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
