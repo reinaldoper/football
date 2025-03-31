@@ -7,6 +7,7 @@ import SearchPlayer from '../../components/SearchPlayer';
 import { getTeam, getTeamPlayers, searchPlayers } from '../../lib/api';
 import { useParams } from 'next/navigation';
 import { Team, Player } from '@/app/types';
+import Spinner from '@/app/components/Spinner';
 
 
 export default function TeamPage() {
@@ -63,7 +64,11 @@ export default function TeamPage() {
   };
 
   if (!team) {
-    return <div className="flex justify-center border-4 border-blue-500 border-t-transparent rounded-full animate-spin">Carregando informações do time...</div>;
+    return (
+      <div className="flex justify-center h-screen items-center">
+        <Spinner />
+      </div>
+    );
   }
 
   return (
