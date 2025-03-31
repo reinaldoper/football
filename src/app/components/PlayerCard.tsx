@@ -11,9 +11,9 @@ interface PlayerCardProps {
 
 export default function PlayerCard({ player, onSelect }: PlayerCardProps) {
   return (
-    <div className="p-4 border rounded shadow-md hover:shadow-lg transition-shadow cursor-pointer">
+    <div className="p-4 border rounded shadow-md hover:shadow-lg transition-shadow cursor-pointer" onClick={onSelect}>
       <h3 className="text-lg font-bold">{player.name}</h3>
-      <p onClick={onSelect}>Posição: {player.statistics[0].games.position}</p>
+      <p>Posição: {player.statistics[0].games.position}</p>
       <div className="flex justify-center">
         <Image
           src={player.photo}
