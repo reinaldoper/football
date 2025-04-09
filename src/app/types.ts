@@ -9,6 +9,12 @@ export interface Player {
   name: string;
   position: string;
   photo: string;
+  player: {
+    id: number;
+    name: string;
+    position: string;
+    photo: string;
+  },
   statistics: statistics[];
   team: {
     id: number;

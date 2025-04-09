@@ -20,7 +20,7 @@ async function apiRequest<T>(endpoint: string, params: Record<string, string> = 
   }
 
   const data = await response.json();
-  console.log("Dados da API:", data);
+  /* console.log("Dados da API:", data); */
   
   return data.response as T;
 }
@@ -35,8 +35,10 @@ export async function searchPlayers(name: string, teamId?: string): Promise<Play
   }
 
   const data = await apiRequest<{ player: Player }[]>('players', params);
+  console.log(data, "data");
   
-  return data.map(playerObj => playerObj.player);
+  
+  return data as unknown as Player[];
 }
 
 

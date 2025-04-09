@@ -4,6 +4,8 @@ import { FieldProps, positions } from '../types';
 
 
 export default function Field({ players }: FieldProps) {
+  console.log("Players definidos", players);
+  
   return (
     <div className="relative bg-green-500 h-[500px] w-full rounded-lg overflow-hidden">
       {players.map((player, index) => {
@@ -22,7 +24,7 @@ export default function Field({ players }: FieldProps) {
 
         return (
           <div
-            key={player.id}
+            key={player.name}
             className="absolute rounded-full bg-white text-center w-30 h-30 flex items-center justify-center"
             style={{
               left: `${x}%`,

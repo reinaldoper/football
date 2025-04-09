@@ -12,12 +12,12 @@ interface PlayerCardProps {
 export default function PlayerCard({ player, onSelect }: PlayerCardProps) {
   return (
     <div className="p-4 border rounded shadow-md hover:shadow-lg transition-shadow cursor-pointer" onClick={onSelect}>
-      <h3 className="text-lg font-bold">{player.name}</h3>
+      <h3 className="text-lg font-bold">{player.player.name}</h3>
       <p>Posição: {player.statistics[0].games.position}</p>
       <div className="flex justify-center">
         <Image
-          src={player.photo}
-          alt={player.name}
+          src={player.player.photo}
+          alt="Jogador"
           width={100}
           height={100}
           className="rounded-full"

@@ -50,6 +50,8 @@ export default function TeamPage() {
   const handleSearch = async (searchTerm: string) => {
     try {
       const result = await searchPlayers(searchTerm, teamId);
+      console.log("player", result);
+      
       setAvailablePlayers(result);
     } catch (error) {
       console.error("Erro ao buscar jogadores:", error);
@@ -82,7 +84,7 @@ export default function TeamPage() {
           <h2 className="text-2xl font-bold mb-4">Jogadores Disponíveis</h2>
           <div className="grid grid-cols-3 gap-4">
             {availablePlayers.map((player) => (
-              <PlayerCard key={player.id} player={player} onSelect={() => handleAddPlayerToTeam(player)} />
+              <PlayerCard key={player.player.id} player={player} onSelect={() => handleAddPlayerToTeam(player)} />
             ))}
           </div>
         </div>
