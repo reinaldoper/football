@@ -4,11 +4,13 @@ import { FieldProps, positions } from '../types';
 
 
 export default function Field({ players }: FieldProps) {
-  console.log("Players definidos", players);
+  /* console.log("Players definidos", players); */
   
   return (
     <div className="relative bg-green-500 h-[500px] w-full rounded-lg overflow-hidden">
       {players.map((player, index) => {
+        /* console.log("Renderizando jogador:", player); */
+
         const positionStyle = positions[player.position];
 
         
@@ -24,7 +26,7 @@ export default function Field({ players }: FieldProps) {
 
         return (
           <div
-            key={player.name}
+            key={index}
             className="absolute rounded-full bg-white text-center w-30 h-30 flex items-center justify-center"
             style={{
               left: `${x}%`,

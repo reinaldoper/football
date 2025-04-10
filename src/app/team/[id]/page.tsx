@@ -59,8 +59,32 @@ export default function TeamPage() {
   };
 
   const handleAddPlayerToTeam = (player: Player) => {
+    const newPlayer: Player = {
+        id: player.player.id,
+        name: player.player.name,
+        position: player.statistics[0].games.position,
+        photo: player.player.photo,
+        player: {
+          id: player.player.id,
+          name: player.player.name,
+          position: player.player.name,
+          photo: player.player.photo,
+        },
+        statistics: player.statistics,
+        team: {
+          id: player.id,
+          name: player.name,
+        },
+
+      }
+
+    console.log(newPlayer);
+    
+      
+    
+    
     if (!players.some((p) => p.id === player.id)) {
-      setPlayers((prevPlayers) => [...prevPlayers, player]);
+      setPlayers((prevPlayers) => [...prevPlayers, newPlayer]);
     }
     setAvailablePlayers([]);
   };
